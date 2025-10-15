@@ -26,13 +26,16 @@ def draw_plan(world, plan):
     plt.show()
 """
 
-def draw_plan(world, plan, bgr=(255,0,0), thickness=1):
+def draw_plan(world, plan, bgr=(255,0,0), thickness=1, filename=None):
     img = np.copy(world)
     for t in range(len(plan)-1):
         pt0 = (int(plan[t].x), int(plan[t].y))
         pt1 = (int(plan[t+1].x), int(plan[t+1].y))
 
         cv2.line(img, pt0, pt1, bgr, thickness)
+
+    if filename:
+        cv2.imwrite(filename, img)
 
     cv2.imshow('image', img)
     cv2.waitKey(0)

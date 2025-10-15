@@ -201,5 +201,4 @@ if __name__ == "__main__":
     end_time = time.time()
     print(f"Planning time: {end_time - start_time:.4f} seconds")
 
-    draw_plan(world, plan)
-
+    draw_plan(world, plan, filename="astar_result_1_YongLin_Tan.png")
