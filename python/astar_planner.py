@@ -196,6 +196,10 @@ if __name__ == "__main__":
     start_state = State(10, 10)
     dest_state = State(500, 500)
 
+    start_time = time.time()
     plan = astar.plan(start_state, dest_state)
+    end_time = time.time()
+    print(f"Planning time: {end_time - start_time:.4f} seconds")
+
     draw_plan(world, plan)
 
