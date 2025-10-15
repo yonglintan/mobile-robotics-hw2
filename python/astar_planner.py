@@ -171,7 +171,9 @@ class AStarPlanner:
                 # to visit it then update its priority in the queue, and also its
                 # distance to come and its parent
                 if (ns not in Q) or (alternative_dist_to_come_to_ns < dist_to_come[ns.x, ns.y]):
-                    Q[ns] = alternative_dist_to_come_to_ns
+                    heuristic_cost_to_dest = sqrt((ns.x - dest_state.x)**2 + (ns.y - dest_state.y)**2)
+                    alternative_total_cost = alternative_dist_to_come_to_ns + heuristic_cost_to_dest  
+                    Q[ns] = alternative_total_cost
                     dist_to_come[ns.x, ns.y] = alternative_dist_to_come_to_ns
                     parents[ns] = s
 
